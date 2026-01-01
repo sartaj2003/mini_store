@@ -1,0 +1,19 @@
+<h2>Edit Product</h2>
+
+<%= form_with model: @product do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </p>
+
+  <%= f.submit "Update Product" %>
+<% end %>
+
+<br>
+
+<%= link_to "Back to Products", products_path %>

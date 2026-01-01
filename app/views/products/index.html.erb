@@ -1,0 +1,36 @@
+<h2>My Products</h2>
+
+<%= link_to "Add Product", new_product_path %>
+
+<hr>
+
+<% if @products.any? %>
+  <ul>
+    <% @products.each do |product| %>
+      <li>
+        <strong><%= product.name %></strong>
+        - ₹<%= product.price %>
+
+        |
+        <%= link_to "Edit", edit_product_path(product) %>
+
+        |
+        <%= button_to "Delete",
+              product_path(product),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No products added yet.</p>
+<% end %>
+
+<hr>
+
+<%= button_to "Logout",
+      logout_path,
+      method: :delete,
+      data: { turbo: false } %>
+
+
